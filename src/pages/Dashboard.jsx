@@ -1,10 +1,26 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import GmDashboard from "../components/GmDashboard";
+import GmList from "../components/GmList";
+import { ownerList } from "../data/flates";
+
+function ShowUI({ title }) {
+  switch (title) {
+    case "Flat List":
+      //
+      return <GmList items={ownerList} />;
+    default:
+      return <div></div>;
+  }
+}
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [title, setTitle] = useState("Dashboard");
 
-  const handleButtonClick = (actionName) => {
+  const handleClick = (actionName) => {
     console.log(`${actionName} button clicked`);
+    setTitle(actionName);
     // Add your routing or state logic here
   };
 
@@ -66,71 +82,13 @@ export default function Dashboard() {
         {/* --- MAIN CONTENT AREA --- */}
         <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 bg-light">
           <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 className="h2">Dashboard Overview</h1>
+            <h1 className="h2">{title}</h1>
           </div>
-
-          {/* Six Multi-Colored Buttons Grid */}
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-2">
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-primary w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-                onClick={() => handleButtonClick("Primary Action")}
-              >
-                Primary Link
-              </button>
-            </div>
-
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-secondary w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-                onClick={() => handleButtonClick("Secondary Action")}
-              >
-                Secondary Link
-              </button>
-            </div>
-
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-success w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-                onClick={() => handleButtonClick("Success Action")}
-              >
-                Success Link
-              </button>
-            </div>
-
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-danger w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-                onClick={() => handleButtonClick("Danger Action")}
-              >
-                Danger Link
-              </button>
-            </div>
-
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-warning w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold text-dark"
-                onClick={() => handleButtonClick("Warning Action")}
-              >
-                Warning Link
-              </button>
-            </div>
-
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-info w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold text-dark"
-                onClick={() => handleButtonClick("Info Action")}
-              >
-                Info Link
-              </button>
-            </div>
-          </div>
+          {title === "Dashboard" ? (
+            <GmDashboard onClick={handleClick} />
+          ) : (
+            <ShowUI title={title} />
+          )}
         </main>
       </div>
     </div>
