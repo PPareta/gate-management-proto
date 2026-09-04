@@ -12,14 +12,13 @@ export default function GmDashboard(props) {
             Flat List
           </button>
         </div>
-
         <div className="col">
           <button
             type="button"
             className="btn btn-secondary w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-            onClick={() => props.onClick("Secondary Action")}
+            onClick={() => props.onClick("Book Party Hall")}
           >
-            Secondary Link
+            Book Party Hall
           </button>
         </div>
 
@@ -27,9 +26,9 @@ export default function GmDashboard(props) {
           <button
             type="button"
             className="btn btn-success w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-            onClick={() => props.onClick("Success Action")}
+            onClick={() => props.onClick("Raise a Ticket")}
           >
-            Success Link
+            Raise a Ticket
           </button>
         </div>
 
@@ -37,9 +36,9 @@ export default function GmDashboard(props) {
           <button
             type="button"
             className="btn btn-danger w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold"
-            onClick={() => props.onClick("Danger Action")}
+            onClick={() => props.onClick("Profile")}
           >
-            Danger Link
+            Profile
           </button>
         </div>
 
@@ -47,9 +46,9 @@ export default function GmDashboard(props) {
           <button
             type="button"
             className="btn btn-warning w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold text-dark"
-            onClick={() => props.onClick("Warning Action")}
+            onClick={() => props.onClick("Guest Entry")}
           >
-            Warning Link
+            Guest Entry
           </button>
         </div>
 
@@ -57,9 +56,9 @@ export default function GmDashboard(props) {
           <button
             type="button"
             className="btn btn-info w-100 py-5 fs-5 shadow-sm text-uppercase fw-semibold text-dark"
-            onClick={() => props.handleClick("Info Action")}
+            onClick={() => props.handleClick("Pre Approval")}
           >
-            Info Link
+            Pre Approval
           </button>
         </div>
       </div>
